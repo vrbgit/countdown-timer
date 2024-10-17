@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer</title>
+    <title>Aftellen tot kerstmis</title>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             background-color: #DC2F31;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -19,9 +20,9 @@
         h1 {
             color: white;
             margin-bottom: 20px;
-            text-align: center;
+            text-align: center; /* Zorgt ervoor dat de titel gecentreerd is */
         }
-        
+
         #countdown {
             display: flex;
             justify-content: space-between;
@@ -49,8 +50,8 @@
 </head>
 <body>
 
-    <h1>Aftellen tot kerstmis</h1>
-    
+    <h1>Aftellen tot kerstmis</h1> <!-- Titel gecentreerd boven de timer -->
+
     <div id="countdown">
         <div class="time-box">
             <span id="days"></span>

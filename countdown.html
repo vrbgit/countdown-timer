@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aftellen tot kerstmis</title>
+    <!-- Voeg hier de link naar het BR Hendrix font toe, bijvoorbeeld via Adobe Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/br-hendrix" rel="stylesheet">
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'BR Hendrix', sans-serif; /* Gebruik het lettertype */
             font-weight: 700;
             background-color: #DC2F31;
             display: flex;
@@ -20,7 +22,7 @@
         h1 {
             color: white;
             margin-bottom: 20px;
-            text-align: center; /* Zorgt ervoor dat de titel gecentreerd is */
+            text-align: center;
         }
 
         #countdown {
@@ -50,7 +52,7 @@
 </head>
 <body>
 
-    <h1>Aftellen tot kerstmis</h1> <!-- Titel gecentreerd boven de timer -->
+    <h1>Aftellen tot kerstmis</h1>
 
     <div id="countdown">
         <div class="time-box">
@@ -72,36 +74,25 @@
     </div>
 
     <script>
-        // Set the date to count down to
         let countdownDate = new Date("Dec 24, 2024 23:59:59").getTime();
-
-        // Update the countdown every second
         let countdownFunction = setInterval(function() {
-            
-            // Get today's date and time
             let now = new Date().getTime();
-
-            // Find the distance between now and the countdown date
             let distance = countdownDate - now;
 
-            // Time calculations for days, hours, minutes, and seconds
             let days = Math.floor(distance / (1000 * 60 * 60 * 24));
             let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result in the respective elements
             document.getElementById("days").innerHTML = days;
             document.getElementById("hours").innerHTML = hours;
             document.getElementById("minutes").innerHTML = minutes;
             document.getElementById("seconds").innerHTML = seconds;
 
-            // If the countdown is over, display a message
             if (distance < 0) {
                 clearInterval(countdownFunction);
                 document.getElementById("countdown").innerHTML = "EXPIRED";
             }
-
         }, 1000);
     </script>
 </body>

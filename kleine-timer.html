@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aftellen tot kerstmis</title>
+    <link href="https://fonts.cdnfonts.com/css/br-hendrix" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'BR Hendrix', sans-serif;
+            font-weight: 700;
+            background-color: #DC2F31;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.5em; /* Kleiner gemaakt om ruimte te besparen */
+        }
+
+        #countdown {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            background-color: #333;
+            padding: 10px; /* Verminderd om ruimte te besparen */
+            border-radius: 10px;
+            color: white;
+            max-width: 400px; /* Max breedte ingesteld */
+            max-height: 200px; /* Max hoogte ingesteld */
+            width: 100%;
+        }
+
+        .time-box {
+            margin: 0 10px; /* Marges verkleind */
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.5em; /* Kleiner font om binnen de container te passen */
+        }
+
+        .label {
+            font-size: 0.9em; /* Iets kleiner voor meer compactheid */
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aftellen tot kerstmis</h1>
+
+    <div id="countdown">
+        <div class="time-box">
+            <span id="days"></span>
+            <span class="label">Dagen</span>
+        </div>
+        <div class="time-box">
+            <span id="hours"></span>
+            <span class="label">Uren</span>
+        </div>
+        <div class="time-box">
+            <span id="minutes"></span>
+            <span class="label">Minuten</span>
+        </div>
+        <div class="time-box">
+            <span id="seconds"></span>
+            <span class="label">Seconden</span>
+        </div>
+    </div>
+
+    <script>
+        let countdownDate = new Date("Dec 24, 2024 23:59:59").getTime();
+        let countdownFunction = setInterval(function() {
+            let now = new Date().getTime();
+            let distance = countdownDate - now;
+
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
